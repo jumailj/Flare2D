@@ -1,0 +1,7 @@
+*.vs
+*.sln
+
+#vs_code_proj_file
+*Flare2D.vcxproj
+*Flare2D.vcxproj.filters
+*Flare2D.vcxproj.user
