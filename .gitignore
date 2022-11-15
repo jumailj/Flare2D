@@ -5,3 +5,7 @@
 *Flare2D.vcxproj
 *Flare2D.vcxproj.filters
 *Flare2D.vcxproj.user
+
+#folderpath
+/bin-int
+/bin
