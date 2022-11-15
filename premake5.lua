@@ -16,6 +16,7 @@ workspace "Flare2D"
 				objdir ("bin-int/" .. outputdir .. "/%{prj.name}"); -- dir location intermediate files
 
 				files {"%{prj.name}/src/**.h", "%{prj.name}/src/**.cpp"} -- include .h, .cpp files in src folder
+				includedirs { "%{prj.name}/vendor/spdlog/include"}
 
 			
 			filter "configurations:Debug"
@@ -40,7 +41,7 @@ workspace "Flare2D"
 
 				files {"%{prj.name}/src/**.h", "%{prj.name}/src/**.cpp"} -- include .h, .cpp files in src folder
 
-				includedirs {"Flare2D/src"}
+				includedirs {"Flare2D/src", "Flare2D/vendor/spdlog/include"}
 				links {"Flare2D"} -- statically links Flare2D lib file to Sandbox
 
 				filter "configurations:Debug"

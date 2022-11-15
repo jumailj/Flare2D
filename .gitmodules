@@ -1,0 +1,3 @@
+[submodule "Flare2D/vendor/spdlog"]
+	path = Flare2D/vendor/spdlog
+	url = https://github.com/gabime/spdlog
