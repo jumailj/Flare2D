@@ -1,9 +1,11 @@
 #include "Flare2D.h"
 
+int main(int argc, char* argv[]) {
 
-int main() {
-	print();
+	Flare2D::Log::Init();
+	int a = 20;
 
-	vec2 newvec(1, 2);
-	newvec.getVec();
+	FLARE2D_ERROR("I'M YOUR ERROR {0}",a);
+
+
 }
