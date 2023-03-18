@@ -5,6 +5,14 @@ workspace "Flare2D"
 	startproject "Sandbox" -- set startup project as Sandbox, which contain actual exe. which run when we press f5 //todo{fix startup project}
 
 	outputdir = "%{cfg.buildcfg}-%{cfg.architecture}" -- it's a variable, later assign to prj dirs. : {debug-x64} {releae-x64}
+
+	-- include directories relative to root folder
+	IncludeDir = {}
+	IncludeDir["GLFW"] = "Flare2D/vendor/GLFW/include"
+
+	include "Flare2D/vendor/GLFW" --glfw premake file location;
+
+
 	
 		project "Flare2D" 
 				location "Flare2D" -- folder location where all the source code is presented
@@ -16,7 +24,8 @@ workspace "Flare2D"
 				objdir ("bin-int/" .. outputdir .. "/%{prj.name}"); -- dir location intermediate files
 
 				files {"%{prj.name}/src/**.h", "%{prj.name}/src/**.cpp"} -- include .h, .cpp files in src folder
-				includedirs { "%{prj.name}/vendor/spdlog/include"}
+				includedirs { "%{prj.name}/vendor/spdlog/include", "%{prj.name}/vendor/GLFW/include"} 
+				links {"GLFW","opengl32.lib"} -- statically links Flare2D lib file to Sandbox
 
 			
 			filter "configurations:Debug"
