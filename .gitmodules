@@ -1,3 +1,6 @@
 [submodule "Flare2D/vendor/spdlog"]
 	path = Flare2D/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "Flare2D/vendor/GLFW"]
+	path = Flare2D/vendor/GLFW
+	url = https://github.com/jumailj/glfw
