@@ -10,6 +10,7 @@ workspace "Flare2D"
 	IncludeDir = {}
 	IncludeDir["GLFW"] = "Flare2D/vendor/GLFW/include"
 	IncludeDir["GLAD"] = "Flare2D/vendor/GLAD/include"
+	IncludeDir["glm"] =  "Flare2D/vendor/glm"
 
 	include "Flare2D/vendor/GLFW" --glfw premake file location;
 	include "Flare2D/vendor/GLAD" -- glad premake file locaiton;
@@ -26,8 +27,9 @@ workspace "Flare2D"
 				objdir ("bin-int/" .. outputdir .. "/%{prj.name}"); -- dir location intermediate files
 
 				files {"%{prj.name}/src/**.h", "%{prj.name}/src/**.cpp"} -- include .h, .cpp files in src folder
-				includedirs { "%{prj.name}/vendor/spdlog/include", "%{prj.name}/vendor/GLFW/include", "%{prj.name}/vendor/GLAD/include"} 
-				links {"GLAD", "GLFW","opengl32.lib"} -- statically links Flare2D lib file to Sandbox
+				includedirs { "%{prj.name}/vendor/spdlog/include", "%{prj.name}/vendor/GLFW/include", "%{prj.name}/vendor/GLAD/include", "%{IncludeDir.glm}","C:/VulkanSDK/1.3.250.0/Include"} 
+				libdirs  {"C:/VulkanSDK/1.3.250.0/Lib"} --location of locally installed vulksdk dir.
+				links {"GLAD", "GLFW","vulkan-1.lib"} -- statically links Flare2D lib file to Sandbox
 
 			
 			filter "configurations:Debug"

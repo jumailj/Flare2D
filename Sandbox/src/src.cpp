@@ -1,6 +1,7 @@
 #include "Flare2D.h"
 
-void glfw_init();
+
+int glfw_init();
 
 int main(int argc, char* argv[]) {
 

@@ -1,14 +1,47 @@
 
+#define GLFW_INCLUDE_VULKAN
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
 
+#include "glm/glm.hpp"
+
 #include "../Logger/Log.h"
 
-void glfw_init() {
-	if (!glfwInit()) {
-		FLARE2D_CORE_ERROR("GLFW FAILD");
-	}
-	else {
+
+#define GLM_FORCE_RADIANS
+#define GLM_FORCE_DEPTH_ZERO_TO_ONE
+#include <glm/vec4.hpp>
+#include <glm/mat4x4.hpp>
+
+#include <iostream>
+
+int glfw_init() {
+
+       glfwInit();
+
+        glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
+        GLFWwindow* window = glfwCreateWindow(800, 600, "Vulkan window", nullptr, nullptr);
+
+        uint32_t extensionCount = 0;
+        vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, nullptr);
+
+        FLARE2D_CORE_TRACE("EXTENSION SUPPORTED: {0}", extensionCount);
+
+        glm::mat4 matrix;
+        glm::vec4 vec;
+        auto test = matrix * vec;
+
+        while (!glfwWindowShouldClose(window)) {
+            glfwPollEvents();
+        }
+
+        glfwDestroyWindow(window);
+
+        glfwTerminate();
+
+        return 0;
+
 		FLARE2D_CORE_INFO("GLFW LOADED, Version:{0}", glfwGetVersionString());
-	}	
+	
 }
+
